@@ -1,0 +1,22 @@
+import os
+#use python3
+y=os.popen("figlet -c ip detector")
+print(y.read())
+url=input("Enter URL --> ")
+print("enter your choice\n1.ipv4\n2.ipv6\n3.exit")
+x=int(input("\n---->"))
+while True:
+	try:
+		if x<=2:
+			linux="host "+url
+			start=os.popen(linux, 'r')
+			mark=start.readlines()
+			p=mark[x-1].find("address")+8
+			print(f"|>>{mark[x-1][p:].strip()}<<|")
+			break
+		elif x==3:
+			break
+		else:
+			print("invalid choice")
+	except Expectation:
+		print("error!!!!")
